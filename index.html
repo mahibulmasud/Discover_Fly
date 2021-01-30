@@ -79,7 +79,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p id="totalPrice">$500</p>
+                        <p id="totalPrice">$0</p>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p id="tax-amount">$50</p>
+                        <p id="tax-amount">$0</p>
                     </div>
                 </div>
                 <hr>
@@ -97,11 +97,11 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p id="grand-total">$550</p>
+                        <p id="grand-total">$0</p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="book-now" class="btn-style">Book Now</button>
         </div>
 
         <div class="booking-content">
@@ -137,13 +137,13 @@
             function calculateTotal(){
                 const FirstClassCount=getInputValue('FirstClass');
                 const EconomicsCount=getInputValue('Economics');
-                const totalPrice = (FirstClassCount * 150) + (EconomicsCount * 100);
+                totalPrice = (FirstClassCount * 150) + (EconomicsCount * 100);
                 document.getElementById("totalPrice").innerText = '$' + totalPrice;
 
-                const tax = totalPrice * 0.1;
+                tax = totalPrice * 0.1;
                 document.getElementById("tax-amount").innerText = '$' + tax;
 
-                const grandTotal = totalPrice + tax;
+                grandTotal = totalPrice + tax;
                 document.getElementById('grand-total').innerText = '$' + grandTotal;
 
             }
@@ -153,6 +153,10 @@
                 const ticketCount = parseInt(ticketInput.value);
                 return ticketCount;
             }
+            // show form output
+            document.getElementById("book-now").addEventListener('click',function(){
+                alert("Subtotal: "+totalPrice+", Tax: "+tax+", Total: "+ grandTotal);
+            })
         </script>
 </body>
 
