@@ -88,7 +88,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p id="tax-amount">$50</p>
                     </div>
                 </div>
                 <hr>
@@ -97,7 +97,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p id="grand-total">$550</p>
                     </div>
                 </div>
             </div>
@@ -131,19 +131,27 @@
                     ticketNewCount = ticketCount-1;
                 }
                 ticketInput.value = ticketNewCount;
-                
+
                 calculateTotal()
             }
             function calculateTotal(){
-                const FirstClassInput = document.getElementById("FirstClassInput");
-                const FirstClassCount = parseInt(FirstClassInput.value);
-
-                const EconomicsInput = document.getElementById("EconomicsInput");
-                const EconomicsCount = parseInt(EconomicsInput.value);
-
+                const FirstClassCount=getInputValue('FirstClass');
+                const EconomicsCount=getInputValue('Economics');
                 const totalPrice = (FirstClassCount * 150) + (EconomicsCount * 100);
                 document.getElementById("totalPrice").innerText = '$' + totalPrice;
 
+                const tax = totalPrice * 0.1;
+                document.getElementById("tax-amount").innerText = '$' + tax;
+
+                const grandTotal = totalPrice + tax;
+                document.getElementById('grand-total').innerText = '$' + grandTotal;
+
+            }
+
+            function getInputValue(ticket){
+                const ticketInput = document.getElementById(ticket + "Input");
+                const ticketCount = parseInt(ticketInput.value);
+                return ticketCount;
             }
         </script>
 </body>
