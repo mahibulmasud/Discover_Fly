@@ -55,8 +55,8 @@
                 </div>
                 <div class="plus-minus-btn">
                     <p>
-                        <span onclick="handleFirstClassChange(true)" id="FirstClassIncrease" style="cursor: pointer;">+</span>
-                        <span onclick="handleFirstClassChange(false)" id="FirstClassDecrease" style="cursor: pointer;">-</span>
+                        <span onclick="handleticketChange('FirstClass',true)" id="FirstClassIncrease" style="cursor: pointer;">+</span>
+                        <span onclick="handleticketChange('FirstClass',false)" id="FirstClassDecrease" style="cursor: pointer;">-</span>
                     </p>
                 </div>
             </div>
@@ -68,8 +68,8 @@
                 </div>
                 <div class="plus-minus-btn">
                     <p>
-                        <span onclick="handleEconomicsChange(true)" id="EconomyIncrease" style="cursor: pointer;">+</span>
-                        <span onclick="handleEconomicsChange(false)" id="EconomyDecrease" style="cursor: pointer;">-</span>
+                        <span onclick="handleticketChange('Economics',true)" id="EconomyIncrease" style="cursor: pointer;">+</span>
+                        <span onclick="handleticketChange('Economics',false)" id="EconomyDecrease" style="cursor: pointer;">-</span>
                     </p>
                 </div>
             </div>
@@ -119,49 +119,19 @@
                 
 
                 
-            function handleFirstClassChange(isIncrease){
-                const FirstClassInput = document.getElementById("FirstClassInput");
-                const FirstClassCount = parseInt(FirstClassInput.value);
-                let FirstClassNewCount = FirstClassCount;
+            function handleticketChange(ticket,isIncrease){
+                const ticketInput = document.getElementById(ticket + "Input");
+                const ticketCount = parseInt(ticketInput.value);
+                let ticketNewCount = ticketCount;
                 if(isIncrease == true){
-                    FirstClassNewCount = FirstClassCount+1;
+                    ticketNewCount = ticketCount+1;
                 }
-                if (isIncrease == false && FirstClassCount > 0 )
+                if (isIncrease == false && ticketCount > 0 )
                 {
-                    FirstClassNewCount = FirstClassCount-1;
+                    ticketNewCount = ticketCount-1;
                 }
-                
-                console.log(FirstClassInput);
-                FirstClassInput.value = FirstClassNewCount;
+                ticketInput.value = ticketNewCount;
             }
-
-            function handleEconomicsChange(isIncrease){
-                const EconomicsInput = document.getElementById("EconomicsInput");
-                const EconomicsCount = parseInt(EconomicsInput.value);
-                let EconomicsNewCount = EconomicsCount;
-                if(isIncrease == true){
-                    EconomicsNewCount = EconomicsCount+1;
-                }
-                if (isIncrease == false && EconomicsCount > 0 )
-                {
-                    EconomicsNewCount = EconomicsCount-1;
-                }
-                EconomicsInput.value = EconomicsNewCount;
-            }
-            // document.getElementById("FirstClassIncrease").addEventListener("click", function () {
-            //     const FirstClassInput = document.getElementById("FirstClassInput");
-            //     const FirstClassCount = parseInt(FirstClassInput.value);
-            //     const FirstClassNewCount = FirstClassCount+1;
-            //     console.log(FirstClassInput);
-            //     FirstClassInput.value = FirstClassNewCount;
-            // })
-            // document.getElementById("FirstClassDecrease").addEventListener("click", function () {
-            //     const FirstClassInput = document.getElementById("FirstClassInput");
-            //     const FirstClassCount = parseInt(FirstClassInput.value);
-            //     const FirstClassNewCount = FirstClassCount-1;
-            //     console.log(FirstClassInput);
-            //     FirstClassInput.value = FirstClassNewCount;
-            // })
         </script>
 </body>
 
