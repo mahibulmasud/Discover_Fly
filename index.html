@@ -128,6 +128,7 @@
                 }
                 if (isIncrease == false && ticketCount > 0) {
                     ticketNewCount = ticketCount - 1;
+
                 }
                 ticketInput.value = ticketNewCount;
 
@@ -154,12 +155,12 @@
             }
             // show form outputs//
             document.getElementById("book-now").addEventListener('click', function () {
-                    let newLine = "\r\n";
-                    let message = "Subtotal: "+totalPrice;
-                    message += newLine;
-                    message += "Tax: "+tax;
-                    message += newLine;
-                    message += "Total: "+grandTotal;
+                    // let newLine = "\r\n";
+                    let message = "Total FirstClass tickets: "+FirstClassInput.value+"\r\n";
+                    message += "Total Economics tickets: "+EconomicsInput.value+"\r\n"+"\r\n";
+                    message += "Subtotal: "+totalPrice+"\r\n";
+                    message += "Tax: "+tax+"\r\n";
+                    message += "Total: "+grandTotal+"\r\n";
                     alert(message);
             })
         </script>
