@@ -79,7 +79,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p id="totalPrice">$500</p>
                     </div>
                 </div>
 
@@ -131,6 +131,19 @@
                     ticketNewCount = ticketCount-1;
                 }
                 ticketInput.value = ticketNewCount;
+                
+                calculateTotal()
+            }
+            function calculateTotal(){
+                const FirstClassInput = document.getElementById("FirstClassInput");
+                const FirstClassCount = parseInt(FirstClassInput.value);
+
+                const EconomicsInput = document.getElementById("EconomicsInput");
+                const EconomicsCount = parseInt(EconomicsInput.value);
+
+                const totalPrice = (FirstClassCount * 150) + (EconomicsCount * 100);
+                document.getElementById("totalPrice").innerText = '$' + totalPrice;
+
             }
         </script>
 </body>
