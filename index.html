@@ -55,8 +55,10 @@
                 </div>
                 <div class="plus-minus-btn">
                     <p>
-                        <span onclick="handleticketChange('FirstClass',true)" id="FirstClassIncrease" style="cursor: pointer;">+</span>
-                        <span onclick="handleticketChange('FirstClass',false)" id="FirstClassDecrease" style="cursor: pointer;">-</span>
+                        <span onclick="handleticketChange('FirstClass',true)" id="FirstClassIncrease"
+                            style="cursor: pointer;">+</span>
+                        <span onclick="handleticketChange('FirstClass',false)" id="FirstClassDecrease"
+                            style="cursor: pointer;">-</span>
                     </p>
                 </div>
             </div>
@@ -68,8 +70,10 @@
                 </div>
                 <div class="plus-minus-btn">
                     <p>
-                        <span onclick="handleticketChange('Economics',true)" id="EconomyIncrease" style="cursor: pointer;">+</span>
-                        <span onclick="handleticketChange('Economics',false)" id="EconomyDecrease" style="cursor: pointer;">-</span>
+                        <span onclick="handleticketChange('Economics',true)" id="EconomyIncrease"
+                            style="cursor: pointer;">+</span>
+                        <span onclick="handleticketChange('Economics',false)" id="EconomyDecrease"
+                            style="cursor: pointer;">-</span>
                     </p>
                 </div>
             </div>
@@ -113,30 +117,29 @@
         </section>
 
         <!--Thank You-->
-
+        <!-- javascript code start -->
         <script>
-            
-                
 
-                
-            function handleticketChange(ticket,isIncrease){
+
+
+
+            function handleticketChange(ticket, isIncrease) {
                 const ticketInput = document.getElementById(ticket + "Input");
                 const ticketCount = parseInt(ticketInput.value);
                 let ticketNewCount = ticketCount;
-                if(isIncrease == true){
-                    ticketNewCount = ticketCount+1;
+                if (isIncrease == true) {
+                    ticketNewCount = ticketCount + 1;
                 }
-                if (isIncrease == false && ticketCount > 0 )
-                {
-                    ticketNewCount = ticketCount-1;
+                if (isIncrease == false && ticketCount > 0) {
+                    ticketNewCount = ticketCount - 1;
                 }
                 ticketInput.value = ticketNewCount;
 
                 calculateTotal()
             }
-            function calculateTotal(){
-                const FirstClassCount=getInputValue('FirstClass');
-                const EconomicsCount=getInputValue('Economics');
+            function calculateTotal() {
+                const FirstClassCount = getInputValue('FirstClass');
+                const EconomicsCount = getInputValue('Economics');
                 totalPrice = (FirstClassCount * 150) + (EconomicsCount * 100);
                 document.getElementById("totalPrice").innerText = '$' + totalPrice;
 
@@ -148,16 +151,23 @@
 
             }
 
-            function getInputValue(ticket){
+            function getInputValue(ticket) {
                 const ticketInput = document.getElementById(ticket + "Input");
                 const ticketCount = parseInt(ticketInput.value);
                 return ticketCount;
             }
-            // show form output
-            document.getElementById("book-now").addEventListener('click',function(){
-                alert("Subtotal: "+totalPrice+", Tax: "+tax+", Total: "+ grandTotal);
+            // show form outputs//
+            document.getElementById("book-now").addEventListener('click', function () {
+                    let newLine = "\r\n";
+                    let message = "Subtotal: "+totalPrice;
+                    message += newLine;
+                    message += "Tax: "+tax;
+                    message += newLine;
+                    message += "Total: "+grandTotal;
+                    alert(message);
             })
         </script>
+        <!-- javascript code end -->
 </body>
 
 </html>
